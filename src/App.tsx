@@ -1,12 +1,16 @@
+import { Page } from "./Page/Page";
+import { AppStateProvider } from "./state/AppStateContext";
+import { createPage } from "./utils/createPage";
+
 import "./App.css";
 
-import { Page } from "./Page/Page";
+const initialState = createPage();
 
 function App() {
   return (
-    <>
+    <AppStateProvider initialState={initialState}>
       <Page />
-    </>
+    </AppStateProvider>
   );
 }
 
