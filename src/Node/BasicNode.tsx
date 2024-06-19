@@ -7,15 +7,13 @@ import {
 import { NodeData } from "../utils/types";
 import styles from "./Node.module.css";
 import { nanoid } from "nanoid";
+import { useAppState } from "../state/AppStateContext";
 
 type BasicNodeProps = {
   node: NodeData;
   isFocused: boolean;
   index: number;
   updateFocusedIndex(index: number): void;
-  addNode(node: NodeData, index: number): void;
-  removeNodebyIndex(index: number): void;
-  changeNodeValue(index: number, value: string): void;
 };
 
 export const BasicNode = ({
@@ -23,11 +21,9 @@ export const BasicNode = ({
   isFocused,
   index,
   updateFocusedIndex,
-  addNode,
-  removeNodebyIndex,
-  changeNodeValue,
 }: BasicNodeProps) => {
   const nodeRef = useRef<HTMLDivElement>(null);
+  const { changeNodeValue, removeNodeByIndex, addNode } = useAppState();
 
   useEffect(() => {
     if (isFocused) {
@@ -70,11 +66,11 @@ export const BasicNode = ({
     if (event.key === "Backspace") {
       if (target.textContent?.length === 0) {
         event.preventDefault();
-        removeNodebyIndex(index);
+        removeNodeByIndex(index);
         updateFocusedIndex(index - 1);
       } else if (window?.getSelection()?.anchorOffset === 0) {
         event.preventDefault();
-        removeNodebyIndex(index - 1);
+        removeNodeByIndex(index - 1);
         updateFocusedIndex(index - 1);
       }
     }
