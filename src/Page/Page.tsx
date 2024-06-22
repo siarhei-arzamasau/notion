@@ -3,6 +3,7 @@ import { useFocusedNodeIndex } from "../hooks/useFocusedNodeIndex";
 import { Cover } from "./Cover";
 import { Spacer } from "./Spacer";
 import { Title } from "./Title";
+import { NodeContainer } from "../Node/NodeContainer";
 import { useAppState } from "../state/AppStateContext";
 import { DndContext, DragOverlay, DragEndEvent } from "@dnd-kit/core";
 import {
@@ -11,7 +12,6 @@ import {
 } from "@dnd-kit/sortable";
 
 import styles from "./Page.module.css";
-import { NodeContainer } from "../Node/NodeContainer";
 
 export const Page = () => {
   const { title, nodes, addNode, setTitle, reorderNodes } = useAppState();
