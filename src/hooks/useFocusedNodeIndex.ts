@@ -1,5 +1,5 @@
-import { useState, Dispatch, SetStateAction, useEffect } from "react";
-import { NodeData } from "../utils/types";
+import { useState, Dispatch, SetStateAction, useEffect } from 'react';
+import { NodeData } from '../utils/types';
 
 type UseFocusedNodeIndexProps = {
   nodes: NodeData[];
@@ -12,18 +12,18 @@ export const useFocusedNodeIndex = ({
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowUp") {
+      if (event.key === 'ArrowUp') {
         setFocusedNodeIndex((index) => Math.max(index - 1, 0));
       }
 
-      if (event.key === "ArrowDown") {
+      if (event.key === 'ArrowDown') {
         setFocusedNodeIndex((index) => Math.min(index + 1, nodes.length - 1));
       }
     };
 
-    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener('keydown', onKeyDown);
 
-    return () => document.removeEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
   }, [nodes]);
 
   return [focusedNodeIndex, setFocusedNodeIndex];

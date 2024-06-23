@@ -1,17 +1,17 @@
-import { nanoid } from "nanoid";
-import { useFocusedNodeIndex } from "../hooks/useFocusedNodeIndex";
-import { Cover } from "./Cover";
-import { Spacer } from "./Spacer";
-import { Title } from "./Title";
-import { NodeContainer } from "../Node/NodeContainer";
-import { useAppState } from "../state/AppStateContext";
-import { DndContext, DragOverlay, DragEndEvent } from "@dnd-kit/core";
+import { nanoid } from 'nanoid';
+import { useFocusedNodeIndex } from '../hooks/useFocusedNodeIndex';
+import { Cover } from './Cover';
+import { Spacer } from './Spacer';
+import { Title } from './Title';
+import { NodeContainer } from '../Node/NodeContainer';
+import { useAppState } from '../state/AppStateContext';
+import { DndContext, DragOverlay, DragEndEvent } from '@dnd-kit/core';
 import {
   SortableContext,
   verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
+} from '@dnd-kit/sortable';
 
-import styles from "./Page.module.css";
+import styles from './Page.module.css';
 
 export const Page = () => {
   const { title, nodes, addNode, setTitle, reorderNodes } = useAppState();
@@ -47,7 +47,7 @@ export const Page = () => {
         <Spacer
           showHint={nodes.length === 0}
           handleClick={() => {
-            addNode({ type: "text", value: "", id: nanoid() }, nodes.length);
+            addNode({ type: 'text', value: '', id: nanoid() }, nodes.length);
           }}
         />
       </div>

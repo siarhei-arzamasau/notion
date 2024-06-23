@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { NodeType } from "../utils/types";
-import { useOverflowsScreenBottom } from "../hooks/useOverflowsScreenBottom";
-import cx from "classnames";
+import { useEffect, useState } from 'react';
+import { NodeType } from '../utils/types';
+import { useOverflowsScreenBottom } from '../hooks/useOverflowsScreenBottom';
+import cx from 'classnames';
 
-import styles from "./CommandPanel.module.css";
+import styles from './CommandPanel.module.css';
 
 type CommandPanelProps = {
   nodeText: string;
@@ -16,12 +16,12 @@ type SupportedNodeType = {
 };
 
 const supportedNodeTypes: SupportedNodeType[] = [
-  { value: "text", name: "Text" },
-  { value: "list", name: "List" },
-  { value: "page", name: "Page" },
-  { value: "heading1", name: "Heading 1" },
-  { value: "heading2", name: "Heading 2" },
-  { value: "heading3", name: "Heading 3" },
+  { value: 'text', name: 'Text' },
+  { value: 'list', name: 'List' },
+  { value: 'page', name: 'Page' },
+  { value: 'heading1', name: 'Heading 1' },
+  { value: 'heading2', name: 'Heading 2' },
+  { value: 'heading3', name: 'Heading 3' },
 ];
 
 export const CommandPanel = ({ selectItem, nodeText }: CommandPanelProps) => {
@@ -30,18 +30,18 @@ export const CommandPanel = ({ selectItem, nodeText }: CommandPanelProps) => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
+      if (event.key === 'Enter') {
         selectItem(supportedNodeTypes[selectedItemIndex].value);
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
 
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedItemIndex, selectItem]);
 
   useEffect(() => {
-    const normalizedValue = nodeText.toLocaleLowerCase().replace(/\//, "");
+    const normalizedValue = nodeText.toLocaleLowerCase().replace(/\//, '');
     setSelectedItemIndex(
       supportedNodeTypes.findIndex((item) => item.value.match(normalizedValue))
     );

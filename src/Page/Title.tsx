@@ -1,8 +1,8 @@
-import { useRef, useEffect } from "react";
-import { nanoid } from "nanoid";
+import { useRef, useEffect } from 'react';
+import { nanoid } from 'nanoid';
 
-import { NodeData } from "../utils/types";
-import styles from "./Title.module.css";
+import { NodeData } from '../utils/types';
+import styles from './Title.module.css';
 
 type TitleProps = {
   title: string;
@@ -28,12 +28,12 @@ export const Title = ({ title, changePageTitle, addNode }: TitleProps) => {
         contentEditable
         suppressContentEditableWarning
         onInput={(event) =>
-          changePageTitle(event.currentTarget.textContent || "")
+          changePageTitle(event.currentTarget.textContent || '')
         }
         onKeyDown={(event) => {
-          if (event.key === "Enter") {
+          if (event.key === 'Enter') {
             event.preventDefault();
-            addNode({ type: "text", id: nanoid(), value: "" }, 0);
+            addNode({ type: 'text', id: nanoid(), value: '' }, 0);
           }
         }}
       ></h1>
