@@ -1,5 +1,6 @@
-import { NodeData, NodeType } from "../utils/types";
-import { BasicNode } from "./BasicNode";
+import { NodeData, NodeType } from '../utils/types';
+import { BasicNode } from './BasicNode';
+import { PageNode } from './PageNode';
 
 type NodeTypeSwitcherProps = {
   node: NodeData;
@@ -9,11 +10,11 @@ type NodeTypeSwitcherProps = {
 };
 
 const TEXT_NODE_TYPES: NodeType[] = [
-  "text",
-  "list",
-  "heading1",
-  "heading2",
-  "heading3",
+  'text',
+  'list',
+  'heading1',
+  'heading2',
+  'heading3',
 ];
 
 export const NodeTypeSwitcher = ({
@@ -31,6 +32,10 @@ export const NodeTypeSwitcher = ({
         updateFocusedIndex={updateFocusedIndex}
       />
     );
+  }
+
+  if (node.type === 'page') {
+    return <PageNode node={node} index={index} isFocused={isFocused} />;
   }
 
   return null;
