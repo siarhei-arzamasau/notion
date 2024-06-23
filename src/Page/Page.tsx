@@ -14,7 +14,15 @@ import {
 import styles from './Page.module.css';
 
 export const Page = () => {
-  const { title, nodes, addNode, setTitle, reorderNodes } = useAppState();
+  const {
+    title,
+    nodes,
+    cover,
+    setCoverImage,
+    addNode,
+    setTitle,
+    reorderNodes,
+  } = useAppState();
   const [focusedNodeIndex, setFocusedNodeInex] = useFocusedNodeIndex({ nodes });
 
   const handleDragEvent = (event: DragEndEvent) => {
@@ -27,7 +35,7 @@ export const Page = () => {
 
   return (
     <>
-      <Cover />
+      <Cover filePath={cover} changePageCover={setCoverImage} />
       <div>
         <Title addNode={addNode} title={title} changePageTitle={setTitle} />
         <DndContext onDragEnd={handleDragEvent}>
