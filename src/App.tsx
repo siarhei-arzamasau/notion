@@ -4,8 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import { Auth } from './auth/Auth';
 import { Private } from './auth/Private';
 
-import './App.css';
-
 function App() {
   return (
     <Routes>

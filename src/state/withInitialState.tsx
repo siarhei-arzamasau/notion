@@ -81,6 +81,7 @@ export function withInitialState<TProps>(
     }
 
     if (!initialState) {
+      console.log(initialState);
       return <div className={styles.centeredFlex}>Page not found</div>;
     }
 
