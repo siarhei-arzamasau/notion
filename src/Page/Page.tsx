@@ -11,8 +11,6 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 
-import styles from './Page.module.css';
-
 export const Page = () => {
   const {
     title,
