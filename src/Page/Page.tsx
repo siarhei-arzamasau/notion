@@ -21,7 +21,9 @@ export const Page = () => {
     setTitle,
     reorderNodes,
   } = useAppState();
-  const [focusedNodeIndex, setFocusedNodeInex] = useFocusedNodeIndex({ nodes });
+  const [focusedNodeIndex, setFocusedNodeIndex] = useFocusedNodeIndex({
+    nodes,
+  });
 
   const handleDragEvent = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -43,7 +45,7 @@ export const Page = () => {
                 key={index}
                 node={node}
                 isFocused={focusedNodeIndex === index}
-                updateFocusedIndex={setFocusedNodeInex}
+                updateFocusedIndex={setFocusedNodeIndex}
                 index={index}
               />
             ))}
